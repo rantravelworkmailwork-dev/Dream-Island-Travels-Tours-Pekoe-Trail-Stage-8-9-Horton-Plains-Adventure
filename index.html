@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pekoe Trails &amp; Horton Plains Adventure – Tailor-Made Holiday | 5 Days</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar site-nav sticky-top shadow-sm">
+    <div class="container-fluid container-lg d-flex justify-content-between align-items-center">
+      <a class="navbar-brand d-flex align-items-center gap-3 text-wrap m-0" href="#">
+        <img src="images/dream island logo.jpeg" alt="Dream Island Travels Logo" class="brand-logo" />
+        <div>
+          <span class="brand-title">Dream Island Travels &amp; Tours Pvt Ltd</span>
+          <span class="brand-subtitle">Tailor-Made Holidays across Sri Lanka</span>
+        </div>
+      </a>
+      <div class="d-none d-lg-block nav-motto">Your Dream, Our Destination</div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <p class="hero-kicker">HIGHLAND ADVENTURE • SRI LANKA</p>
+      <h1>Pekoe Trail Stage 8 &amp; 9 + Horton</h1>
+      <h1>Plains Adventure</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-tagline">Culture, wildlife and adventure across the heart of the hills, tea country, and misty cloud forests.</p>
+      <div class="hero-meta">
+         <span>Guest: Mr. Asiri Rathnayake</span>
+        <span>04 Nights / 05 Days</span>
+        <span>02nd Jan 2027 – 06th Jan 2027</span>
+        <span>Half Board</span>
+        <span>03 Pax</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container my-5">
+
+    <!-- INTRO -->
+    <section class="luxe-card accent">
+      <h3 class="section-title">Embark on an Unforgettable Highland Adventure</h3>
+      <p class="section-sub">Combining raw nature, rich colonial history, and world-famous tea heritage</p>
+      <p class="intro-lead">This journey takes you deep into the heart of the hills through the stunning Pekoe Trail Stages 8 &amp; 9. Walk along endless carpets of lush green tea estates, pass through charming local villages, and enjoy breathtaking panoramic views of the scenic Castlereagh and Maskeliya Reservoirs.</p>
+      <p class="intro-body mb-2">The adventure reaches its ultimate peak at Horton Plains National Park, a misty, high-altitude paradise. Hike through unique cloud forests and montane grasslands leading straight to the dramatic World’s End sheer cliff drop and the cascading beauty of Baker’s Falls. Along the way, experience the cozy luxury of staying in a heritage tea bungalow in Norwood, surrounded by chilly mountain weather.</p>
+    </section>
+
+    <!-- KEY FACTS -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-md-3"><div class="fact"><span class="fact-label">Tour</span><span class="fact-value">Pekoe Trail 8 &amp; 9</span><span class="fact-note">Private highland tour</span></div></div>
+      <div class="col-6 col-md-3"><div class="fact"><span class="fact-label">Duration</span><span class="fact-value">4N / 5D</span><span class="fact-note">02 Jan – 06 Jan 2027</span></div></div>
+      <div class="col-6 col-md-3"><div class="fact"><span class="fact-label">Meal Plan</span><span class="fact-value">Half Board</span><span class="fact-note">Breakfast &amp; dinner</span></div></div>
+      <div class="col-6 col-md-3"><div class="fact"><span class="fact-label">Travelers</span><span class="fact-value">03 Pax</span><span class="fact-note">Mr. Asiri Rathnayake</span></div></div>
+    </div>
+
+    <!-- MAP -->
+    <section class="luxe-card">
+      <h4 class="section-title">Your Route</h4>
+      <p class="section-sub">Tap any pin to see the stay and highlights for that destination.</p>
+      <div id="sri-lanka-map"></div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section class="luxe-card">
+      <h4 class="section-title">Experiences Included</h4>
+      <p class="section-sub">Every activity below is covered in your package.</p>
+      <div>
+        <span class="tag">🚣 Kithulgala White Water Rafting (Optional)</span>
+        <span class="tag">🥾 Pekoe Trail Stage 8</span>
+        <span class="tag">🥾 Pekoe Trail Stage 9</span>
+        <span class="tag">🦌 Horton Plains National Park</span>
+        <span class="tag">☕ Heritage Tea Bungalow Stay</span>
+        <span class="tag">🏞️ Scenic Mountain Viewpoints</span>
+      </div>
+    </section>
+
+    <!-- ITINERARY -->
+    <section class="mb-4">
+      <h4 class="mb-3">Day-by-Day Itinerary</h4>
+
+      <div class="accordion" id="itineraryAccordion">
+
+        <!-- Day 1 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#day1">
+              <span class="day-no">Day 1</span> Arrival to Norwood (Tea Queen Bungalow)
+            </button>
+          </h2>
+          <div id="day1" class="accordion-collapse collapse show" data-bs-parent="#itineraryAccordion">
+            <div class="accordion-body">
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p>Arrive in Sri Lanka and meet your private chauffeur. Transfer into the misty hills of Norwood. En route, optional White Water Rafting can be enjoyed in Kithulgala. Check into your heritage tea bungalow and settle into the chilly mountain ambiance.</p>
+                  <div>
+                    <span class="tag">🚗 Private Transfer</span>
+                    <span class="tag">🚣 Kithulgala Rafting (Optional)</span>
+                    <span class="tag">🏨 Tea Bungalow Check-in</span>
+                  </div>
+                  <div class="stay-info"><strong>Overnight:</strong> Norwood &mdash; Tea Queen Bungalow<br><strong>Meals:</strong> Dinner &nbsp;|&nbsp; Night 1 of 2</div>
+                </div>
+                <div class="col-lg-5"><div class="day-photo-grid"><img src="images/teaqueen.jpg" alt="Norwood tea bungalow" /></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day2">
+              <span class="day-no">Day 2</span> Norwood (Pekoe Trail Stage 8)
+            </button>
+          </h2>
+          <div id="day2" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
+            <div class="accordion-body">
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p><span class="slot">Morning &amp; Afternoon</span> Embark on a guided trek along **Pekoe Trail Stage 8**. Walk past sweeping carpets of lush green tea estates, local villages, and picturesque reservoir backdrops.</p>
+                  <div>
+                    <span class="tag">🥾 Pekoe Trail Stage 8</span>
+                    <span class="tag">🌿 Tea Plantation Trek</span>
+                  </div>
+                  <div class="stay-info"><strong>Overnight:</strong> Norwood &mdash; Tea Queen Bungalow<br><strong>Meals:</strong> Breakfast &amp; Dinner &nbsp;|&nbsp; Night 2 of 2</div>
+                </div>
+                <div class="col-lg-5"><div class="day-photo-grid"><img src="images/trail8.jpg" alt="Pekoe Trail trekking" /></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day3">
+              <span class="day-no">Day 3</span> Norwood to Nuwara Eliya (Pekoe Trail Stage 9)
+            </button>
+          </h2>
+          <div id="day3" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
+            <div class="accordion-body">
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p><span class="slot">Morning</span> Take on **Pekoe Trail Stage 9**, journeying deeper through breathtaking highland scenery.</p>
+                  <p><span class="slot">Afternoon</span> Proceed to Nuwara Eliya, known as 'Little England', and check in to your tranquil villa surrounded by mountain views.</p>
+                  <div>
+                    <span class="tag">🥾 Pekoe Trail Stage 9</span>
+                    <span class="tag">🚗 Scenic Drive</span>
+                  </div>
+                  <div class="stay-info"><strong>Overnight:</strong> Nuwara Eliya &mdash; Tranquil Villa<br><strong>Meals:</strong> Breakfast &amp; Dinner &nbsp;|&nbsp; Night 1 of 2</div>
+                </div>
+                <div class="col-lg-5">
+                  <div class="day-photo-grid">
+                    <img src="images/trail9.jpg" alt="Highland trail" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day4">
+              <span class="day-no">Day 4</span> Nuwara Eliya (Horton Plains Adventure)
+            </button>
+          </h2>
+          <div id="day4" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
+            <div class="accordion-body">
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p>An early morning excursion to **Horton Plains National Park**. Hike through mystical cloud forests and montane grasslands to witness the dramatic **World’s End** precipice and **Baker’s Falls**. Return to Nuwara Eliya for a relaxing evening.</p>
+                  <div>
+                    <span class="tag">🦌 Horton Plains National Park</span>
+                    <span class="tag">🥾 World’s End &amp; Baker’s Falls Hike</span>
+                  </div>
+                  <div class="stay-info"><strong>Overnight:</strong> Nuwara Eliya &mdash; Tranquil Villa<br><strong>Meals:</strong> Breakfast &amp; Dinner &nbsp;|&nbsp; Night 2 of 2</div>
+                </div>
+                <div class="col-lg-5"><div class="day-photo-grid"><img src="images/bekerfalls.jpg" alt="Horton Plains" /></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#day5">
+              <span class="day-no">Day 5</span> Departure
+            </button>
+          </h2>
+          <div id="day5" class="accordion-collapse collapse" data-bs-parent="#itineraryAccordion">
+            <div class="accordion-body">
+              <p>After breakfast, check out from your villa and enjoy a scenic private transfer back to your departure destination, bringing your wonderful highland adventure to a close.</p>
+              <div class="stay-info"><strong>Departure Transfer:</strong> Private air-conditioned transfer.<br><strong>Meals:</strong> Breakfast</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ACCOMMODATION -->
+    <section class="luxe-card">
+      <h4 class="section-title">Your Luxury Villa Stays</h4>
+      <p class="section-sub">Carefully selected boutique properties offering cozy comfort in the hills</p>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="hotel-card">
+            <div class="hotel-head"><h5>Norwood</h5><span>02 Nights &bull; Half Board</span></div>
+            <ul class="hotel-list"><li>Tea Queen Bungalow</li></ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="hotel-card">
+            <div class="hotel-head"><h5>Nuwara Eliya</h5><span>02 Nights &bull; Half Board</span></div>
+            <ul class="hotel-list"><li>Tranquil Villa</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALIDITY NOTE -->
+    <section class="note">
+      <h5>Tour Dates</h5>
+      <p>This customized itinerary is scheduled from <strong>02nd of January 2027 to 06th of January 2027</strong> for 03 Pax.</p>
+    </section>
+
+    <!-- MEAL NOTE -->
+    <section class="note">
+      <h5>Meal Plan</h5>
+      <p>Your stay is on a Half Board (HB) basis at every property, with daily breakfast and dinner included. Lunches and beverages can be enjoyed at local spots along your route.</p>
+    </section>
+
+    <!-- INCLUSIONS / EXCLUSIONS -->
+    <section class="luxe-card">
+      <h4 class="mb-3">Package Details</h4>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="package-box">
+            <h5>The above prices include</h5>
+            <ul class="package-list">
+              <li>Luxury boutique villa accommodation with Breakfast &amp; Dinner (HB) at Tea Queen Bungalow (Norwood) &amp; Tranquil Villa (Nuwara Eliya).</li>
+              <li>Driver accommodation and expenses.</li>
+              <li>Transportation by fully air-conditioned vehicle during the tour.</li>
+              <li>All tolls, parking fees, and fuel costs.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="package-box excluded">
+            <h5>The above prices do not include</h5>
+            <ul class="package-list">
+              <li>Early check-in and late check-out costs.</li>
+              <li>All Entrance fees & Tickets.</li>
+              <li>Cost of lunch and beverages throughout the tour.</li>
+              <li>Expenses of a personal nature.</li>
+              <li>Any other services not specified above.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- POLICIES -->
+<section class="luxe-card">
+  <h4 class="section-title mb-1">Policies &amp; Conditions</h4>
+  <p class="section-sub mb-4">Essential information regarding your booking, stay, and cancellations.</p>
+
+  <div class="policy-stack">
+
+    <!-- 1. General Booking & Payments -->
+    <div class="policy-subcard">
+      <h5 class="policy-subcard-title"><span>01</span> Other Conditions &amp; Notes</h5>
+      <ul class="package-list">
+        <li>Optional excursions and additional services can be provided at an extra charge.</li>
+        <li>Visits to wildlife parks and nature reserves will be at the client’s own risk.</li>
+      </ul>
+    </div>
+
+    <!-- 2. Hotel Rules -->
+    <div class="policy-subcard">
+      <h5 class="policy-subcard-title"><span>02</span> Hotel Rules &amp; Regulations</h5>
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <div class="timing-badge">
+            <span class="timing-label">Official Check-In</span>
+            <span class="timing-value">13:00 hrs</span>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="timing-badge">
+            <span class="timing-label">Official Check-Out</span>
+            <span class="timing-value">11:00 hrs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Child Policy -->
+    <div class="policy-subcard">
+      <h5 class="policy-subcard-title"><span>03</span> Child Policy</h5>
+      <div class="row g-2 align-items-center">
+        <div class="col-md-4">
+          <div class="child-tier">
+            <span class="tier-age">0 – 5.99 Years</span>
+            <span class="tier-price fee-none">Free of charge</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="child-tier">
+            <span class="tier-age">6 – 11.99 Years</span>
+            <span class="tier-price">50% of package rate</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="child-tier">
+            <span class="tier-age">12+ Years</span>
+            <span class="tier-price">Adult rate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Cancellation Policy -->
+    <div class="policy-subcard">
+      <h5 class="policy-subcard-title"><span>04</span> Cancellation Policy</h5>
+      <div class="table-responsive">
+        <table class="luxe-table">
+          <thead>
+            <tr>
+              <th>Notice Before Arrival</th>
+              <th class="num">Cancellation Fee (% of total)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0 – 15 days prior to arrival</td>
+              <td class="num fee-high">100%</td>
+            </tr>
+            <tr>
+              <td>16 – 21 days prior to arrival</td>
+              <td class="num">80%</td>
+            </tr>
+            <tr>
+              <td>22 – 30 days prior to arrival</td>
+              <td class="num">50%</td>
+            </tr>
+            <tr>
+              <td>Over 31 days prior to arrival</td>
+              <td class="num fee-none">No cancellation fee</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="agency-footer">
+    <div class="container px-3">
+      <div class="footer-top-row">
+        <div class="d-flex align-items-center gap-3">
+          <img src="images/dream island logo.jpeg" alt="Dream Island Logo" class="footer-logo">
+          <div>
+            <h5>Dream Island Travels &amp; Tours Pvt Ltd</h5>
+            <span class="footer-sub">Tailor-Made Holidays across Sri Lanka</span>
+          </div>
+        </div>
+        <div class="footer-tagline text-md-end">
+          <span class="d-block footer-tagline-main">Culture &bull; Wildlife &bull; Adventures</span>
+          <span class="footer-tagline-sub">&ldquo;Your Dream, Our Destination&rdquo;</span>
+        </div>
+      </div>
+
+      <div class="row g-4 align-items-center justify-content-between">
+        <div class="col-lg-8">
+          <div class="d-flex flex-column gap-2">
+            <div class="d-flex align-items-start gap-2">
+              <span>📍</span>
+              <a href="https://maps.app.goo.gl/XyPVxmkMoir6SZHaA?g_st=awb" target="_blank" rel="noopener" class="footer-contact-text">357/1, Waththegedara, Vithikuliya, Sri Lanka</a>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span>✉️</span>
+              <a href="mailto:Info@dreamislandtravels.com" class="footer-contact-text">Info@dreamislandtravels.com</a>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#1877F2" class="flex-shrink-0" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg>
+              <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-contact-text">facebook.com/dreamislandtravels</a>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span>🦉</span>
+              <a href="https://www.tripadvisor.co.uk/Attraction_Review-g293962-d34504009-Reviews-Dream_Island_Travels_Tours_Pvt_Ltd-Colombo_Western_Province.html" target="_blank" rel="noopener" class="footer-contact-text">TripAdvisor Reviews</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 text-lg-end">
+          <div class="contact-call-card d-inline-block text-start w-100">
+            <span class="label">Contact Us</span>
+            <a href="tel:+94743935369" class="phone-link d-block">+94 74 393 5369</a>
+            <a href="tel:+94767070706" class="phone-link d-block">+94 76 707 0706</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">&copy; Dream Island Travels &amp; Tours Pvt Ltd. All rights reserved. | Reg. No. PV00301414</div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

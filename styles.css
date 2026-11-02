@@ -1,0 +1,282 @@
+/* Dream Island Travels – Smart Luxury Tour */
+:root {
+  --ink: #0f2b30;
+  --ink-soft: #1d4048;
+  --sea: #1f6f78;
+  --brass: #a8843f;
+  --brass-light: #e7d9b8;
+  --paper: #fbf9f4;
+  --white: #ffffff;
+  --line: #ded6c3;
+  --text: #25363a;
+  
+  /* UPDATED SERIF FONT VARIABLE */
+  --serif: 'EB Garamond', 'Sabon', 'Sabon Next', 'Georgia', serif;
+  --sans: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+
+body {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text);
+  background: linear-gradient(rgba(251,249,244,.93), rgba(251,249,244,.93)),
+              url('images/licensed-image.jpg') repeat fixed;
+  background-size: auto, 550px;
+  -webkit-font-smoothing: antialiased;
+}
+
+p, span, a, li, h1, h2, h3, h4, h5 { overflow-wrap: break-word; }
+h1, h2, h3, h4, h5 { font-family: var(--serif); color: var(--ink); font-weight: 600; line-height: 1.15; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.7rem; }
+h5 { font-size: 1.35rem; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+
+/* ---------- Navbar ---------- */
+.site-nav { background: var(--white); border-bottom: 1px solid var(--line); padding: 14px 0; }
+.brand-logo { height: 48px; width: auto; object-fit: contain; flex-shrink: 0; }
+.brand-title { font-family: var(--serif); font-size: 1.35rem; font-weight: 700; color: var(--ink); line-height: 1.1; display: block; }
+.brand-subtitle { font-size: .82rem; letter-spacing: .06em; color: var(--sea); display: block; margin-top: 2px; }
+.nav-motto { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: var(--brass); border-left: 1px solid var(--brass); padding-left: 14px; }
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(180deg, rgba(15,43,48,.55) 0%, rgba(15,43,48,.93) 100%),
+              url('images/top_background.jpeg') center/cover no-repeat, var(--ink);
+  color: var(--white);
+  text-align: center;
+  padding: 84px 16px 70px;
+}
+.hero-kicker { font-family: var(--serif); font-style: italic; font-size: 1.35rem; color: var(--brass-light); margin-bottom: 10px; }
+.hero h1 { font-size: clamp(2.6rem, 7vw, 4.8rem); font-weight: 500; color: var(--white); letter-spacing: .02em; margin-bottom: 8px; }
+.hero-rule { width: 90px; height: 1px; background: var(--brass); margin: 18px auto; }
+.hero-tagline { max-width: 640px; margin: 0 auto 26px; font-size: 1.08rem; font-weight: 300; color: #e8eeee; }
+.hero-meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 26px; font-size: 1rem; font-weight: 400; letter-spacing: .04em; color: var(--brass-light); }
+.hero-meta span + span { border-left: 1px solid rgba(231,217,184,.4); padding-left: 26px; }
+
+/* ---------- Cards ---------- */
+.luxe-card { background: var(--white); border: 1px solid var(--line); border-radius: 2px; padding: 34px; margin-bottom: 28px; }
+.luxe-card.accent { border-top: 3px solid var(--brass); }
+.section-title { margin-bottom: 6px; }
+.section-sub { color: var(--sea); font-size: .98rem; margin-bottom: 22px; }
+.intro-lead { font-family: var(--serif); font-size: 1.45rem; line-height: 1.5; color: var(--ink-soft); margin-bottom: 14px; }
+.intro-body { max-width: 78ch; }
+
+/* Facts strip */
+.fact { background: var(--ink); color: var(--white); padding: 22px 14px; text-align: center; height: 100%; border-bottom: 3px solid var(--brass); }
+.fact-label { display: block; font-size: .85rem; letter-spacing: .08em; color: var(--brass-light); }
+.fact-value { display: block; font-family: var(--serif); font-size: 1.9rem; font-weight: 600; line-height: 1.2; margin-top: 4px; }
+.fact-note { display: block; font-size: .85rem; color: #bcd0d1; }
+
+/* Map */
+#sri-lanka-map { height: 400px; width: 100%; border: 1px solid var(--line); z-index: 1; }
+/* Pins: Leaflet sets the 34px size inline; the number sits in an inner <span> */
+.custom-map-pin {
+  background: var(--ink);
+  color: var(--brass-light);
+  border: 2px solid var(--brass);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 17px;
+  box-shadow: 0 3px 8px rgba(15,43,48,.4);
+}
+.custom-map-pin span { line-height: 1; }
+
+/* Popups: script.js uses inline styles, so these !important rules apply the luxury look */
+.leaflet-popup-content-wrapper { border-radius: 2px; border-top: 3px solid var(--brass); }
+.leaflet-popup-content div { font-family: var(--sans) !important; }
+.leaflet-popup-content span {
+  background: var(--ink) !important; color: var(--brass-light) !important;
+  border-radius: 2px !important; font-family: var(--sans) !important; font-weight: 500 !important; letter-spacing: .02em;
+}
+.leaflet-popup-content h6 {
+  font-family: var(--serif) !important; font-size: 1.2rem !important; font-weight: 700 !important;
+  color: var(--ink) !important; line-height: 1.2;
+}
+.leaflet-popup-content p { font-size: .88rem !important; color: var(--text) !important; }
+.leaflet-container { font-family: var(--sans); }
+
+/* ---------- Itinerary accordion ---------- */
+.accordion-item { border: 1px solid var(--line); border-radius: 2px !important; margin-bottom: 12px; overflow: hidden; background: var(--white); }
+.accordion-button { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--ink); background: var(--white); padding: 18px 24px; box-shadow: none !important; }
+.accordion-button:not(.collapsed) { background: var(--ink); color: var(--white); }
+.accordion-button:not(.collapsed)::after { filter: brightness(0) invert(1); }
+.accordion-button .day-no { color: var(--brass); margin-right: 12px; white-space: nowrap; }
+.accordion-button:not(.collapsed) .day-no { color: var(--brass-light); }
+.accordion-body { padding: 26px 24px; font-size: 1.02rem; }
+.accordion-body p { max-width: 70ch; }
+.slot { display: block; font-family: var(--serif); font-weight: 700; font-size: 1.1rem; color: var(--sea); }
+
+.tag {
+  display: inline-block; font-size: .86rem; font-weight: 500; color: var(--ink-soft);
+  border: 1px solid var(--brass); border-radius: 30px; padding: 3px 14px; margin: 4px 6px 0 0; background: #fffdf8;
+}
+.stay-info { background: var(--paper); border-left: 3px solid var(--brass); padding: 12px 16px; font-size: .95rem; margin-top: 16px; }
+.stay-info strong { font-family: var(--serif); font-size: 1.05rem; color: var(--ink); }
+
+.day-photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.day-photo-grid img { width: 100%; height: 150px; object-fit: cover; background: var(--line); }
+.day-photo-grid img:only-child { grid-column: 1 / -1; height: 220px; }
+.day-photo-grid img:first-child:nth-last-child(3) { grid-column: 1 / -1; height: 190px; }
+
+/* ---------- Tables ---------- */
+.luxe-table { width: 100%; border-collapse: collapse; font-size: 1rem; }
+.luxe-table caption { caption-side: top; padding: 0 0 12px; font-size: .95rem; color: var(--sea); }
+.luxe-table th { background: var(--ink); color: var(--brass-light); font-family: var(--serif); font-size: 1.1rem; font-weight: 600; padding: 12px 16px; text-align: left; border: 1px solid var(--ink-soft); }
+.luxe-table td { padding: 12px 16px; border: 1px solid var(--line); background: var(--white); }
+.luxe-table tbody tr:nth-child(even) td { background: var(--paper); }
+.luxe-table td.num, .luxe-table th.num { text-align: center; }
+.luxe-table td.price { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--ink); text-align: center; }
+.luxe-table td.na { text-align: center; color: #9aa5a6; }
+.fee-high { color: #9b2c2c; font-weight: 600; }
+.fee-none { color: #2f6b45; font-weight: 600; }
+
+/* Notes */
+.note { border-left: 3px solid var(--brass); background: var(--paper); padding: 22px 26px; margin-bottom: 28px; border-top: 1px solid var(--line); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.note h5 { margin-bottom: 6px; }
+.note p:last-child { margin-bottom: 0; }
+
+/* Lists */
+.package-box { background: var(--paper); border: 1px solid var(--line); padding: 24px; height: 100%; }
+.package-box h5 { padding-bottom: 10px; border-bottom: 1px solid var(--brass); margin-bottom: 14px; }
+.package-list { list-style: none; padding: 0; margin: 0; }
+.package-list li { position: relative; padding: 6px 0 6px 24px; font-size: 1rem; }
+.package-list li::before { content: ""; position: absolute; left: 2px; top: 16px; width: 8px; height: 8px; transform: rotate(45deg); background: var(--brass); }
+.package-box.excluded .package-list li::before { background: transparent; border: 1px solid var(--brass); }
+
+/* ---------- Footer ---------- */
+.agency-footer { background: var(--ink); color: var(--white); padding: 52px 0 22px; margin-top: 40px; border-top: 3px solid var(--brass); }
+.footer-top-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,.15); }
+.footer-logo { height: 52px; width: auto; background: var(--white); padding: 4px 8px; flex-shrink: 0; }
+.agency-footer h5 { color: var(--white); font-size: 1.5rem; margin: 0; }
+.footer-sub { color: #bcd0d1; font-size: .92rem; }
+.footer-tagline-main { font-family: var(--serif); font-size: 1.35rem; color: var(--brass-light); }
+.footer-tagline-sub { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: #bcd0d1; }
+.footer-contact-text { font-size: .98rem; color: var(--white); text-decoration: none; word-break: break-word; }
+.footer-contact-text:hover { color: var(--brass-light); }
+.contact-call-card { border: 1px solid var(--brass); padding: 20px 24px; }
+.contact-call-card .label { font-family: var(--serif); font-size: 1.15rem; color: var(--brass-light); margin-bottom: 4px; display: block; }
+.phone-link { color: var(--white); font-family: var(--serif); font-size: 1.45rem; font-weight: 600; text-decoration: none; }
+.phone-link:hover { color: var(--brass-light); }
+.copyright { text-align: center; padding-top: 18px; margin-top: 26px; border-top: 1px solid rgba(255,255,255,.15); font-size: .85rem; color: #9fb7b9; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  h3 { font-size: 1.65rem; }
+  .brand-logo { height: 38px; }
+  .brand-title { font-size: 1.05rem; }
+  .brand-subtitle { font-size: .72rem; }
+  .hero { padding: 56px 14px 46px; }
+  .hero-meta span + span { border-left: 0; padding-left: 0; }
+  .luxe-card { padding: 22px 16px; }
+  #sri-lanka-map { height: 300px; }
+  .accordion-button { font-size: 1.12rem; padding: 14px 16px; }
+  .accordion-body { padding: 20px 16px; }
+  .day-photo-grid img { height: 120px; }
+  .footer-top-row { flex-direction: column; align-items: flex-start; }
+  .footer-tagline { text-align: left !important; }
+  .luxe-table th, .luxe-table td { padding: 10px 10px; font-size: .92rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* ---------- Hotel choice cards ---------- */
+.hotel-card { border: 1px solid var(--line); background: var(--white); height: 100%; border-top: 3px solid var(--brass); }
+.hotel-head { background: var(--ink); color: var(--white); padding: 14px 20px; }
+.hotel-head h5 { color: var(--white); margin: 0; font-size: 1.4rem; }
+.hotel-head span { font-size: .9rem; color: var(--brass-light); }
+.hotel-list { list-style: none; margin: 0; padding: 8px 20px 14px; }
+.hotel-list li { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--ink); padding: 9px 0 9px 22px; border-bottom: 1px solid var(--line); position: relative; }
+.hotel-list li:last-child { border-bottom: 0; }
+.hotel-list li::before { content: ""; position: absolute; left: 2px; top: 20px; width: 8px; height: 8px; transform: rotate(45deg); background: var(--brass); }
+
+
+
+/* ---------- Policies Redesign ---------- */
+.policy-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.policy-subcard {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--brass);
+  padding: 24px;
+  border-radius: 2px;
+}
+
+.policy-subcard-title {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.policy-subcard-title span {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--brass);
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 2px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+}
+
+/* Timing badges for check-in / check-out */
+.timing-badge {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 12px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.timing-label {
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 500;
+}
+.timing-value {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* Child policy tiers */
+.child-tier {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 14px;
+  text-align: center;
+}
+.tier-age {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--sea);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.tier-price {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+}
