@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const map = L.map("sri-lanka-map", {
     scrollWheelZoom: false // Prevents accidental scrolling on mobile
-  }).setView([7.0, 80.7], 9);
+  }).setView([7.0, 80.7], 8);
 
   // Clean English-Only Map (Esri - Free, No API Key, No Watermarks)
   L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
@@ -13,14 +13,14 @@ document.addEventListener("DOMContentLoaded", function () {
     attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom'
   }).addTo(map);
 
-  // Route pins matching the new 5-day highland itinerary
+  // Route pins matching the 5-day highland itinerary ending in Colombo (without overlapping pickup pin)
   const routeStops = [
     {
       day: "Day 1",
       title: "Kithulgala & Norwood",
       stay: "Tea Queen Bungalow (2 Nights, Half Board)",
       coords: [6.9888, 80.4262],
-      desc: "Airport arrival & scenic transfer to Norwood. Optional White Water Rafting in Kithulgala en route."
+      desc: "Pickup from Colombo & scenic transfer to Norwood. Optional White Water Rafting in Kithulgala en route."
     },
     {
       day: "Day 2",
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       day: "Day 3",
-      title: "Norwood to Nuwara Eliya",
+      title: "Nuwara Eliya",
       stay: "Tranquil Villa (2 Nights, Half Board)",
       coords: [6.9497, 80.7891],
       desc: "Pekoe Trail Stage 9 trek, followed by a scenic drive into Nuwara Eliya ('Little England')."
@@ -45,10 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       day: "Day 5",
-      title: "Departure",
-      stay: "Departure Transfer",
-      coords: [7.2083, 79.8358],
-      desc: "Morning check-out and private transfer back for your departure flight home."
+      title: "Colombo (Drop-Off)",
+      stay: "Tour Conclusion",
+      coords: [6.9271, 79.8612],
+      desc: "Morning check-out and private return transfer back to Colombo for your departure."
     }
   ];
 
